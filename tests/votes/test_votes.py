@@ -1,14 +1,12 @@
-from copy import deepcopy
-
 import pytest
 import jsonschema
 
-# we don't need a response of the created vote in the test, so we use the fixture with 'usefixtures'
 from catapi.json_schemas.vote_json_schema import VOTE_SCHEMA_GET
 from catapi.json_schemas.vote_json_schema import VOTE_SCHEMA_POST
 from catapi.payloads.votes import get_vote_payload
 
 
+# we don't need a response of the created vote in the test, so we use the fixture with 'usefixtures'
 @pytest.mark.usefixtures('created_vote')  # Arrange
 def test_should_get_all_votes(authorized_cat_api_service_factory):
     # Act
